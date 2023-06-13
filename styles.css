@@ -1,11 +1,11 @@
 .title {
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif
-    color: rgb(0, 99, 0);
-    stroke: 1px solid black;
+    font-family: sans-serif;
     padding-right: 100px;
     user-select: none;
     text-align: center;
+    color: rgb(0, 255, 0);
+    stroke: solid 2px black;
 }
 
 body {
@@ -21,13 +21,12 @@ body {
     padding: 10px;
 }
 
-.player {
-    height: 50px;
-    width: 50px;
+.dino {
+    height: 150px;
+    width: 200px;
     position: relative;
-    top: 610px;
-    left: 225px;
-    background-color: red;
+    top: 528px;
+    left: 200px;
     
 }
 
@@ -46,21 +45,21 @@ body {
     height: 50px;
     width: 50px;
     position: relative;
-    top: 410px;
+    top: 310px;
     /*left: 700px;*/
     background-color: blue;
     animation: block 1.3s infinite linear;
 }
 
-@keyframes block{
+/*@keyframes block{
     0%{left: 1780px;}
     100%{left: 0px;}
-}
+}*/
 
 .ground {
-    height: 150px;
+    height: 148px;
     width: 1820px;
-    top: 610px;
+    top: 508px;
     right: 10px;
     position: relative;
     background-color: green;
@@ -70,13 +69,13 @@ body {
     height: 100px;
     width: 100px;
     position: relative;
-    top: 410px;
+    top: 310px;
     /*left: 1000px;*/
     background-color: orange;
     animation: pit 1.3s infinite linear;
 }
 
-@keyframes pit{
+/*@keyframes pit{
     0%{left: 2000px;}
     100%{left: 0px;}
 }
