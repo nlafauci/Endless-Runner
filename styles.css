@@ -51,10 +51,10 @@ body {
     animation: block 1.3s infinite linear;
 }
 
-/*@keyframes block{
+@keyframes block{
     0%{left: 1780px;}
     100%{left: 0px;}
-}*/
+}
 
 .ground {
     height: 148px;
@@ -75,7 +75,7 @@ body {
     animation: pit 1.3s infinite linear;
 }
 
-/*@keyframes pit{
+@keyframes pit{
     0%{left: 2000px;}
     100%{left: 0px;}
 }
