@@ -61,7 +61,11 @@ body {
     top: 508px;
     right: 10px;
     position: relative;
-    background-color: green;
+}
+
+.land {
+    height: 148px;
+    position: relative;
 }
 
 .lava {
