@@ -42,17 +42,16 @@ body {
 }*/
 
 .hill {
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 120px;
     position: relative;
-    top: 310px;
+    top: 145px;
     /*left: 700px;*/
-    background-color: blue;
     animation: block 1.3s infinite linear;
 }
 
 @keyframes block{
-    0%{left: 1780px;}
+    0%{left: 850px;}
     100%{left: 0px;}
 }
 
@@ -69,12 +68,12 @@ body {
     height: 100px;
     width: 100px;
     position: relative;
-    top: 147px;
+    top: 137px;
     /*left: 1000px;*/
     animation: pit 1.3s infinite linear;
 }
 
 @keyframes pit{
-    0%{left: 2000px;}
+    0%{left: 850px;}
     100%{left: 0px;}
 }
