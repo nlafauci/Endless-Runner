@@ -4,6 +4,7 @@
     color: rgb(0, 255, 0);
     stroke: 1px solid black;
     padding-right: 100px;
+    user-select: none;
 }
 
 .game-space {
@@ -40,14 +41,14 @@
     position: relative;
     top: 625px;
     bottom: 125px;
-    left: 700px;
+    /*left: 700px;*/
     background-color: blue;
     animation: block 1.3s infinite linear;
 }
 
 @keyframes block{
     0%{left: 1800px;}
-    100%{left: -680px;}
+    100%{left: 0px;}
 }
 
 .ground {
@@ -64,12 +65,12 @@
     position: relative;
     top: 625px;
     bottom: 25px;
-    left: 1000px;
+    /*left: 1000px;*/
     background-color: orange;
-    animation: block 1.8s infinite linear;
+    animation: pit 1.3s infinite linear;
 }
 
-@keyframes block{
-    0%{left: 1800px;}
-    100%{left: -680px;}
+@keyframes pit{
+    0%{left: 3000px;}
+    100%{left: 1000px;}
 }

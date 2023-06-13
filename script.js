@@ -24,3 +24,7 @@ var lose = setInterval(function(){
     obstacle.style.display = "none";
   }
 }, 10);
+
+resetButton.addEventListener('click', function () {
+  resetGame();
+});
