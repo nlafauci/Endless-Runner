@@ -1,0 +1,75 @@
+.title {
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(0, 255, 0);
+    stroke: 1px solid black;
+    padding-right: 100px;
+}
+
+.game-space {
+    width: 1800px;
+    height: 800px;
+    border: 1px solid black;
+    position: relative;
+
+}
+.player {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: 125px;
+    left: 225px;
+    background-color: red;
+    
+}
+
+/*.animate {
+    animation: jump .5s linear 0s;
+}
+
+@keyframes jump{
+    0%{top: 100px;}
+    30%{top: 50px;}
+    70%{top: 50px;}
+    100%{top: 100px;}
+}*/
+
+.hill {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 625px;
+    bottom: 125px;
+    left: 700px;
+    background-color: blue;
+    animation: block 1.3s infinite linear;
+}
+
+@keyframes block{
+    0%{left: 1800px;}
+    100%{left: -680px;}
+}
+
+.ground {
+    height: 125px;
+    width: 1800px;
+    position: absolute;
+    bottom: 0px;
+    background-color: green;
+}
+
+.lava {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: 625px;
+    bottom: 25px;
+    left: 1000px;
+    background-color: orange;
+    animation: block 1.8s infinite linear;
+}
+
+@keyframes block{
+    0%{left: 1800px;}
+    100%{left: -680px;}
+}
