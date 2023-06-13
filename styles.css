@@ -69,9 +69,8 @@ body {
     height: 100px;
     width: 100px;
     position: relative;
-    top: 310px;
+    top: 147px;
     /*left: 1000px;*/
-    background-color: orange;
     animation: pit 1.3s infinite linear;
 }
 
