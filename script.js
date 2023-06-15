@@ -1,4 +1,4 @@
-/*javascript taken from chatgpt*/
+/* partial javascript taken from chatgpt*/
 document.addEventListener('DOMContentLoaded', () => {
     const player = document.querySelector('.player');
     /*let playerBottom = 0;*/
