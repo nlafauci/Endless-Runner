@@ -32,7 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
+    
     setInterval(fall, 750);
+
+    resetButton.addEventListener('click', function () {
+        resetGame();
+    });
+    
   });
 
 
