@@ -38,7 +38,7 @@ body {
     height: 150px;
     width: 200px;
     position: absolute;
-    top: 528px;
+    top: 508px;
     left: 200px;
     user-select: none;
     
@@ -66,7 +66,7 @@ body {
     height: 70px;
     width: 120px;
     position: relative;
-    top: 222px;
+    top: 212px;
     animation: block 1.3s infinite linear;
     user-select: none;
 }
@@ -79,7 +79,7 @@ body {
 .ground {
     height: 148px;
     width: 1820px;
-    top: 662px;
+    top: 642px;
     right: 10px;
     position: relative;
     user-select: none;
