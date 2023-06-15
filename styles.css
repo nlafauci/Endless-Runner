@@ -67,7 +67,7 @@ body {
     height: 70px;
     width: 120px;
     position: relative;
-    top: 213px;
+    top: 222px;
     animation: block 1.3s infinite linear;
     user-select: none;
 }
@@ -92,7 +92,7 @@ body {
     user-select: none;
 }
 
-.lava {
+/* .lava {
     height: 165px;
     width: 150px;
     position: relative;
@@ -104,4 +104,4 @@ body {
 @keyframes pit{
     0%{left: 850px;}
     100%{left: 0px;}
-}
+} */
