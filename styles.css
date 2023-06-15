@@ -18,7 +18,6 @@ body {
     width: 1800px;
     height: 800px;
     border: 3px solid black;
-    /*background-color: white;*/
     padding: 10px;
     background-image: url("assets/Character/Background/BG2.png");
     background-size: cover;
@@ -27,46 +26,32 @@ body {
     position: relative;
 }
 
-/*.player {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    background-color: red;
-}*/
+.start {
+    width: 75px;
+    height: 50px;
+}
+
+.reset {
+    width: 75px;
+    height: 50px;
+}
+
 
 .dino {
     height: 150px;
     width: 200px;
     position: absolute;
-    top: 508px;
+    top: 478px;
     left: 200px;
     user-select: none;
     
-}
-
-.animate {
-    animation: jump .5s linear 0s;
-}
-
-@keyframes jump{
-    0%{top: 100px;}
-    30%{top: 50px;}
-    70%{top: 50px;}
-    100%{top: 100px;}
-}
-
-@keyframes fall{
-    0%{bottom: 100px;}
-    30%{bottom: 50px;}
-    70%{bottom: 50px;}
-    100%{bottom: 100px;}
 }
 
 .hill {
     height: 70px;
     width: 120px;
     position: relative;
-    top: 212px;
+    top: 197px;
     animation: block 1.3s infinite linear;
     user-select: none;
 }
@@ -79,7 +64,7 @@ body {
 .ground {
     height: 148px;
     width: 1820px;
-    top: 642px;
+    top: 612px;
     right: 10px;
     position: relative;
     user-select: none;
