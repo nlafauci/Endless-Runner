@@ -10,6 +10,7 @@
 
 body {
     background-color: gray;
+    overflow: hidden;
     
 }
 
@@ -20,21 +21,31 @@ body {
     border: 3px solid black;
     /*background-color: white;*/
     padding: 10px;
-    background-image: url("assets\Character\Background\BG.png");
+    background-image: url("assets/Character/Background/BG2.png");
     background-size: cover;
     background-repeat: no-repeat;
+    user-select: none;
+    position: relative;
 }
+
+/*.player {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    background-color: red;
+}*/
 
 .dino {
     height: 150px;
     width: 200px;
-    position: relative;
+    position: absolute;
     top: 528px;
     left: 200px;
+    user-select: none;
     
 }
 
-/*.animate {
+.animate {
     animation: jump .5s linear 0s;
 }
 
@@ -43,15 +54,22 @@ body {
     30%{top: 50px;}
     70%{top: 50px;}
     100%{top: 100px;}
-}*/
+}
+
+@keyframes fall{
+    0%{bottom: 100px;}
+    30%{bottom: 50px;}
+    70%{bottom: 50px;}
+    100%{bottom: 100px;}
+}
 
 .hill {
     height: 70px;
     width: 120px;
     position: relative;
-    top: 145px;
-    /*left: 700px;*/
+    top: 213px;
     animation: block 1.3s infinite linear;
+    user-select: none;
 }
 
 @keyframes block{
@@ -62,26 +80,28 @@ body {
 .ground {
     height: 148px;
     width: 1820px;
-    top: 508px;
+    top: 662px;
     right: 10px;
     position: relative;
+    user-select: none;
 }
 
 .land {
     height: 148px;
     position: relative;
+    user-select: none;
 }
 
 .lava {
     height: 165px;
     width: 150px;
     position: relative;
-    top: 136px;
-    /*left: 1000px;*/
+    top: 200px;
     animation: pit 1.3s infinite linear;
+    user-select: none;
 }
 
 @keyframes pit{
-    0%{left: 1000px;}
+    0%{left: 850px;}
     100%{left: 0px;}
 }
