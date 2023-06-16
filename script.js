@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     parseInt(window.getComputedStyle.))
     // })
     
-    setInterval(fall, 750);
+    setInterval(fall, 1050);
 
     resetButton.addEventListener('click', function () {
         resetGame();
