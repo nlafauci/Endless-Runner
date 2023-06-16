@@ -1,6 +1,7 @@
 /* partial javascript taken from chatgpt*/
 document.addEventListener('DOMContentLoaded', () => {
     const player = document.querySelector('.player');
+    const hill = document.querySelector('grass hill');
     /*let playerBottom = 0;*/
     let gravity = 2;
     
@@ -32,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
+    // Lines 37-onward derived from Endless Runner Reference Video
+    // function lose = setInterval(function(){
+    //   const playerTop =
+    //   parseInt(window.getComputedStyle(player.
+    //     getPropertyValue("top"));
+    //     const blockLeft = 
+    //     parseInt(window.getComputedStyle.))
+    // })
     
     setInterval(fall, 750);
 
@@ -40,18 +49,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
   });
-
-
-// /*const player = document.getElementById('player')
-// const hill = document.getElementById('hill')
-// const lava = document.getElementById('lava')*/
-
-// const gamespace = document.querySelector('.game-space');
-
-// function jump() {
-//   gamespace.style.transform = 'translateY(-100px)'; // Example translation
-// }
-
-// function fall() {
-//   gamespace.style.transform = 'translateY(0)'; // Reset the translation
-// }
