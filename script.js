@@ -1,39 +1,27 @@
 /* partial javascript taken from chatgpt*/
 document.addEventListener('DOMContentLoaded', () => {
-    const player = document.querySelector('.player');
-    const hill = document.querySelector('grass hill');
-    /*let playerBottom = 0;*/
-    let gravity = 2;
+  const player = document.querySelector('.player');
+  const startMenu = document.querySelector('.start-menu');
+  const startButton = document.querySelector('.start');
+  const gameSpace = document.querySelector('.game-space');
+  let gravity = 2;
     
-    function jump() {
-        player.style.transform = 'translateY(-100px)'; // Example translation
-      }
-      
-      function fall() {
-        player.style.transform = 'translateY(0)'; // Reset the translation
-      }
+function jump() {
+    player.style.transform = 'translateY(-100px)';
+}
 
-    // /*function jump() {
-    //   if (playerBottom < 200) {
-    //     playerBottom += 50;
-    //     player.style.bottom = playerBottom + 'px';
-    //   }
-    // }
-    
-    // function fall() {
-    //   if (playerBottom > 0) {
-    //     playerBottom -= gravity;
-    //     player.style.bottom = playerBottom + 'px';
-    //   }
-    // }*/
-    
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowUp' || event.key === ' ') {
+function fall() {
+    player.style.transform = 'translateY(0)';
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowUp' || event.key === ' ') {
         jump();
-      }
-    });
+    }
+});
+
     
-    // Lines 37-onward derived from Endless Runner Reference Video
+    // Lines 37-46 derived from Endless Runner Reference Video
     // function lose = setInterval(function(){
     //   const playerTop =
     //   parseInt(window.getComputedStyle(player.
@@ -44,8 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setInterval(fall, 1050);
 
-    resetButton.addEventListener('click', function () {
-        resetGame();
+    // resetButton.addEventListener('click', function () {
+    //     resetGame();
+    // });
+
+    startButton.addEventListener('click', () => {
+      startMenu.style.display = 'none';
+      gameSpace.style.position = 'fixed';
     });
     
   });

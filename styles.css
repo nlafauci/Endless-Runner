@@ -1,5 +1,17 @@
+.start-menu {
+    background-color: rgba(255, 255, 255, 0.37);
+    position: fixed;
+    z-index: 2;
+    margin: auto;
+    width: 1820px;
+    height: 824px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .title {
-    font-size: 35px;
+    font-size: 100px;
     font-family: stencil;
     padding-right: 100px;
     user-select: none;
@@ -7,14 +19,21 @@
     color: rgb(0, 0, 0);
 }
 
+.start {
+    width: 300px;
+    height: 100px;
+    font-size: 60px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+
 body {
     background-color: green;
     overflow: hidden;
-    
 }
 
 .game-space {
-    margin: auto;
     width: 1800px;
     height: 800px;
     border: 3px solid black;
@@ -23,19 +42,16 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     user-select: none;
-    position: relative;
-}
-
-.start {
-    width: 75px;
-    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .reset {
     width: 75px;
     height: 50px;
 }
-
 
 .dino {
     height: 150px;
@@ -44,7 +60,6 @@ body {
     top: 478px;
     left: 200px;
     user-select: none;
-    
 }
 
 .hill {
@@ -56,9 +71,9 @@ body {
     user-select: none;
 }
 
-@keyframes block{
-    0%{left: 850px;}
-    100%{left: 0px;}
+@keyframes block {
+    0% { left: 850px; }
+    100% { left: 0px; }
 }
 
 .ground {
@@ -75,6 +90,7 @@ body {
     position: relative;
     user-select: none;
 }
+
 
 /* .lava {
     height: 165px;
