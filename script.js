@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const startMenu = document.querySelector('.start-menu');
   const startButton = document.querySelector('.start');
   const gameSpace = document.querySelector('.game-space');
-  const hills = document.querySelectorAll('.grass.hill img');
+  const hills = document.querySelectorAll('.hill');
   const gameOverDiv = document.querySelector('.game-over');
   const gameOverHeading = document.querySelector('.game-over-heading');
   const restartButton = document.querySelector('.again');
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let score = 0;
   let gameStarted = false;
   let jumping = false;
+  let isColliding = false;
 
   function jump() {
     if (jumping) {
@@ -33,34 +34,53 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     player.style.transform = 'translateY(0)';
-    if (gameStarted) {
-      checkCollision();
+    if (gameStarted && !isColliding) {
+      setTimeout(() => {
+        checkCollision();
+      }, 100); // Add a delay before checking for collisions
     }
   }
 
   function checkCollision() {
     const playerRect = player.getBoundingClientRect();
     const playerBottom = playerRect.top + playerRect.height;
-
+  
     hills.forEach((hill) => {
       const hillRect = hill.getBoundingClientRect();
       const hillTop = hillRect.top;
       const hillBottom = hillRect.top + hillRect.height;
-
+  
       if (
         playerBottom >= hillTop &&
         playerRect.left < hillRect.right &&
         playerRect.right > hillRect.left
       ) {
+        console.log('Collision detected');
         gameOver();
       }
     });
   }
+  
 
   function gameOver() {
     gameStarted = false;
-    gameSpace.style.display = 'none';
+    player.style.display = 'none';
+    hills.forEach((hill) => {
+      hill.style.display = 'none';
+    });
     gameOverDiv.style.display = 'block';
+  }
+
+  function resetGame() {
+    isColliding = false; // Reset isColliding to false
+    player.style.display = 'block';
+    hills.forEach((hill) => {
+      hill.style.display = 'block';
+    });
+    gameOverDiv.style.display = 'none';
+    gameStarted = false;
+    gameSpace.style.display = 'none'; // Hide the game space on reset
+    startMenu.style.display = 'block'; // Show the start menu on reset
   }
 
   window.addEventListener('keydown', (event) => {
@@ -69,18 +89,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  setInterval(fall, 500);
-
   startButton.addEventListener('click', () => {
     startMenu.style.display = 'none';
-    gameSpace.style.position = 'fixed';
+    gameSpace.style.display = 'block';
     gameStarted = true;
   });
 
   restartButton.addEventListener('click', () => {
-    startMenu.style.display = 'block';
-    gameSpace.style.display = 'none';
-    gameOverDiv.style.display = 'none';
-    gameStarted = false;
+    resetGame();
+    gameSpace.style.display = 'block'; // Show the game space on restart
   });
+
+  requestAnimationFrame(fall); // Start the animation loop
 });
+
