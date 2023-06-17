@@ -28,6 +28,19 @@
     margin: 0;
 }
 
+.game-over {
+    background-color: rgba(255, 255, 255, 0.37);
+    position: fixed;
+    z-index: 1;
+    margin: auto;
+    width: 1820px;
+    height: 824px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
 body {
     background-color: green;
     overflow: hidden;
@@ -57,7 +70,7 @@ body {
     height: 150px;
     width: 200px;
     position: absolute;
-    top: 478px;
+    top: 528px;
     left: 200px;
     user-select: none;
 }
@@ -66,7 +79,7 @@ body {
     height: 70px;
     width: 120px;
     position: relative;
-    top: 197px;
+    top: 222px;
     animation: block 1.3s infinite linear;
     user-select: none;
 }
@@ -79,7 +92,7 @@ body {
 .ground {
     height: 148px;
     width: 1820px;
-    top: 612px;
+    top: 662px;
     right: 10px;
     position: relative;
     user-select: none;
