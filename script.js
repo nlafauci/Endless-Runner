@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameSpace = document.querySelector('.game-space');
   const hills = document.querySelectorAll('.hill');
   const gameOverDiv = document.querySelector('.game-over');
-  const gameOverHeading = document.querySelector('.game-over-heading');
+  const scoreSpan = document.getElementById('score');
   const restartButton = document.querySelector('.again');
   let gravity = 2;
   let score = 0;
@@ -61,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
+  function updateScore() {
+    score++;
+    scoreSpan.textContent = score;
+  }
 
   function gameOver() {
     gameStarted = false;
@@ -81,6 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     gameStarted = false;
     gameSpace.style.display = 'none'; // Hide the game space on reset
     startMenu.style.display = 'block'; // Show the start menu on reset
+    score = 0;
+    scoreSpan.textContent = score;
   }
 
   window.addEventListener('keydown', (event) => {
@@ -93,13 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
     startMenu.style.display = 'none';
     gameSpace.style.display = 'block';
     gameStarted = true;
+    updateScore(); // Start updating the score
+    requestAnimationFrame(fall); // Start the animation loop
   });
 
   restartButton.addEventListener('click', () => {
     resetGame();
     gameSpace.style.display = 'block'; // Show the game space on restart
   });
-
-  requestAnimationFrame(fall); // Start the animation loop
 });
-
