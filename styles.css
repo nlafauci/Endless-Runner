@@ -1,134 +1,136 @@
 .start-menu {
-    background-color: rgba(255, 255, 255, 0.37);
-    position: fixed;
-    z-index: 2;
-    margin: auto;
-    width: 1820px;
-    height: 824px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.37);
+  position: fixed;
+  z-index: 2;
+  margin: auto;
+  width: 1820px;
+  height: 824px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  font-size: 100px;
+  font-family: stencil;
+  padding-right: 100px;
+  user-select: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.start {
+  width: 300px;
+  height: 100px;
+  font-size: 60px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.game-over {
+  background-color: rgba(255, 255, 255, 0.37);
+  position: fixed;
+  z-index: 1;
+  margin: auto;
+  width: 1820px;
+  height: 824px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+body {
+  background-color: green;
+  overflow: hidden;
+}
+
+.game-space {
+  width: 1800px;
+  height: 800px;
+  border: 3px solid black;
+  padding: 10px;
+  background-image: url("assets/Character/Background/BG2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  user-select: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reset {
+  width: 75px;
+  height: 50px;
+}
+
+.dino {
+  height: 150px;
+  width: 200px;
+  position: absolute;
+  top: 539px;
+  left: 200px;
+  user-select: none;
+}
+
+.hill {
+  height: 70px;
+  width: 120px;
+  position: absolute;
+  top: 336px;
+  left: 80px;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  z-index: 3;
+}
+
+.hill-animation {
+  animation: block 1.3s infinite linear;
+}
+
+@keyframes block {
+  0% {
+    left: 912px;
   }
-  
-  .title {
-    font-size: 100px;
-    font-family: stencil;
-    padding-right: 100px;
-    user-select: none;
-    text-align: center;
-    color: rgb(0, 0, 0);
+  100% {
+    left: 48px;
   }
-  
-  .start {
-    width: 300px;
-    height: 100px;
-    font-size: 60px;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    margin: 0;
+}
+
+.ground {
+  height: 148px;
+  width: 1820px;
+  top: 662px;
+  right: 10px;
+  position: relative;
+  user-select: none;
+}
+
+.land {
+  height: 148px;
+  position: relative;
+  user-select: none;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
   }
-  
-  .game-over {
-    background-color: rgba(255, 255, 255, 0.37);
-    position: fixed;
-    z-index: 1;
-    margin: auto;
-    width: 1820px;
-    height: 824px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
+  50% {
+    transform: translateY(-100px);
   }
-  
-  body {
-    background-color: green;
-    overflow: hidden;
+  100% {
+    transform: translateY(0);
   }
-  
-  .game-space {
-    width: 1800px;
-    height: 800px;
-    border: 3px solid black;
-    padding: 10px;
-    background-image: url("assets/Character/Background/BG2.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    user-select: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
   }
-  
-  .reset {
-    width: 75px;
-    height: 50px;
+  100% {
+    transform: translateY(0);
   }
-  
-  .dino {
-    height: 150px;
-    width: 200px;
-    position: absolute;
-    top: 539px;
-    left: 200px;
-    user-select: none;
-  }
-  
-  .hill {
-    height: 70px;
-    width: 120px;
-    position: absolute;
-    top: 336px;
-    left: 80px;
-    transform: translate(-50%, -50%);
-    animation: block 1.3s infinite linear;
-    user-select: none;
-    z-index: 3;
-  }
-  
-  @keyframes block {
-    0% {
-      left: 912px;
-    }
-    100% {
-      left: 48px;
-    }
-  }
-  
-  .ground {
-    height: 148px;
-    width: 1820px;
-    top: 662px;
-    right: 10px;
-    position: relative;
-    user-select: none;
-  }
-  
-  .land {
-    height: 148px;
-    position: relative;
-    user-select: none;
-  }
-  
-  @keyframes jump {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-100px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fall {
-    0% {
-      transform: translateY(-100px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  
+}

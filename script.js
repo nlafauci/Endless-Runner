@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameStarted = false;
   let jumping = false;
   let isColliding = false;
+  let obstaclesMoving = false;
 
   function jump() {
     if (jumping) {
@@ -37,30 +38,52 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gameStarted && !isColliding) {
       setTimeout(() => {
         checkCollision();
-      }, 100); // Add a delay before checking for collisions
+      }, 100);
     }
   }
 
   function checkCollision() {
     const playerRect = player.getBoundingClientRect();
     const playerBottom = playerRect.top + playerRect.height;
-  
+
+    if (!obstaclesMoving) {
+      return;
+    }
+
+    let collided = false; // Flag to track if a collision occurred
+
     hills.forEach((hill) => {
       const hillRect = hill.getBoundingClientRect();
       const hillTop = hillRect.top;
       const hillBottom = hillRect.top + hillRect.height;
-  
+
       if (
         playerBottom >= hillTop &&
         playerRect.left < hillRect.right &&
         playerRect.right > hillRect.left
       ) {
         console.log('Collision detected');
-        gameOver();
+        collided = true; // Set the collided flag to true
+      } else if (
+        playerBottom <= hillTop &&
+        playerRect.right >= hillRect.left &&
+        playerRect.left <= hillRect.right &&
+        !hill.isScored
+      ) {
+        // Player jumped over the obstacle successfully
+        hill.isScored = true;
+        updateScore();
       }
     });
+
+    if (collided) {
+      gameOver(); // Call gameOver only if a collision occurred
+    } else if (!collided && !jumping) {
+      // No collision and player is not jumping, increment score
+      updateScore();
+    }
   }
-  
+
   function updateScore() {
     score++;
     scoreSpan.textContent = score;
@@ -76,17 +99,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function resetGame() {
-    isColliding = false; // Reset isColliding to false
+    isColliding = false;
     player.style.display = 'block';
     hills.forEach((hill) => {
       hill.style.display = 'block';
+      hill.style.left = '80px'; // Reset the obstacle's position to starting position
+      hill.classList.remove('hill-animation'); // Remove the animation class
+      hill.isScored = false; // Reset the scoring flag
     });
     gameOverDiv.style.display = 'none';
     gameStarted = false;
-    gameSpace.style.display = 'none'; // Hide the game space on reset
-    startMenu.style.display = 'block'; // Show the start menu on reset
+    gameSpace.style.display = 'none';
+    startMenu.style.display = 'block';
     score = 0;
     scoreSpan.textContent = score;
+  }
+
+  function startObstacleMovement() {
+    obstaclesMoving = true;
+    hills.forEach((hill) => {
+      hill.classList.add('hill-animation');
+    });
   }
 
   window.addEventListener('keydown', (event) => {
@@ -100,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gameSpace.style.display = 'block';
     gameStarted = true;
     updateScore(); // Start updating the score
+    startObstacleMovement(); // Start obstacle movement
     requestAnimationFrame(fall); // Start the animation loop
   });
 
