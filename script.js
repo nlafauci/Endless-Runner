@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     player.style.transform = 'translateY(0)';
-    if (gameStarted && !isColliding) {
+    if (gameStarted) {
       setTimeout(() => {
         checkCollision();
       }, 100);
@@ -56,6 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const hillRect = hill.getBoundingClientRect();
       const hillTop = hillRect.top;
       const hillBottom = hillRect.top + hillRect.height;
+      console.log(hills);
+      
+      if (hills[0] == hill){
+        console.log("hills0" + score) 
+      }
 
       if (
         playerBottom >= hillTop &&
@@ -87,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateScore() {
     score++;
     scoreSpan.textContent = score;
+    console.log("updateScore" + score);
   }
 
   function gameOver() {
@@ -96,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       hill.style.display = 'none';
     });
     gameOverDiv.style.display = 'block';
+    console.log("game-over" + score)
   }
 
   function resetGame() {
@@ -113,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startMenu.style.display = 'block';
     score = 0;
     scoreSpan.textContent = score;
+    console.log("resetGame" + score);
   }
 
   function startObstacleMovement() {
@@ -131,10 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', () => {
     startMenu.style.display = 'none';
     gameSpace.style.display = 'block';
-    gameStarted = true;
-    updateScore(); // Start updating the score
-    startObstacleMovement(); // Start obstacle movement
+    // updateScore(); // Start updating the score
     requestAnimationFrame(fall); // Start the animation loop
+    startObstacleMovement(); // Start obstacle movement
+    gameStarted = true;
   });
 
   restartButton.addEventListener('click', () => {
