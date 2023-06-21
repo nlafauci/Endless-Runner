@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const hillTop = hillRect.top;
       const hillBottom = hillRect.top + hillRect.height;
       console.log(hills);
-      
-      if (hills[0] == hill){
-        console.log("hills0" + score) 
+
+      if (hills[0] == hill) {
+        console.log("hills0" + score)
       }
 
       if (
