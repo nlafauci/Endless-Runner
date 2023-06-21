@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateScore() {
     score++;
-    scoreSpan.textContent = score;
+    scoreSpan.textContent = score - 1;
     console.log("updateScore" + score);
   }
 

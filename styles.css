@@ -76,9 +76,12 @@ body {
 
 .score {
   font-size: 50px;
-  font-family: 'Times New Roman', Times, serif
+  font-family: 'Times New Roman', Times, serif;
   user-select: none;
   color: rgb(0, 0, 0);
+  text-align: center; /* Add this line */
+  margin-top: 50px;
+  margin-right: 120px; /* Adjust the value as per your requirement */
 }
 
 .again {
