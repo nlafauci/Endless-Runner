@@ -20,7 +20,7 @@
   padding-right: 100px;
   user-select: none;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 80, 49);
 }
 
 .start {
@@ -71,7 +71,7 @@ body {
   padding-right: 100px;
   user-select: none;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 0, 0);
 }
 
 .score {
