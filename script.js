@@ -42,10 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
- function checkCollision() {
+  function checkCollision() {
   const playerRect = player.getBoundingClientRect();
   const playerBottom = playerRect.bottom;
-  const playerTop = playerRect.top;
 
   if (!obstaclesMoving) {
     return;
@@ -58,38 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const hillTop = hillRect.top;
     const hillBottom = hillRect.bottom;
 
-    if (
-      // Check if obstacle collides with the player horizontally
-      playerRect.left < hillRect.right &&
-      playerRect.right > hillRect.left
-    ) {
-      if (
-        // Check if obstacle hits the player from the top
-        playerTop < hillBottom &&
-        playerBottom > hillTop
-      ) {
-        collided = true;
-        break;
-      }
-    } else if (
-      // Check if the player jumped over the obstacle successfully
-      playerBottom <= hillTop &&
-      playerRect.right >= hillRect.left &&
-      playerRect.left <= hillRect.right &&
-      !hill.isScored
-    ) {
+    if (playerBottom >= hillTop && playerRect.left < hillRect.right && playerRect.right > hillRect.left) {
+      collided = true;
+      break;
+    } else if (playerBottom <= hillTop && playerRect.right >= hillRect.left && playerRect.left <= hillRect.right && !hill.isScored) {
       hill.isScored = true;
       updateScore();
     }
   }
 
-  if (collided || playerBottom >= gameSpace.clientHeight || (!jumping && collided === false)) {
+  if (collided || playerBottom >= gameSpace.clientHeight) {
     gameOver();
   } else if (!collided && !jumping) {
     updateScore();
   }
 }
-
 
 
   function updateScore() {
