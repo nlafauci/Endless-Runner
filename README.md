@@ -3,7 +3,7 @@
 This is Nicholas LaFauci's first milestone project, being a browser game. This game will be updated continuously and all citations and contributors will be listed here in accordance with legality and accountability. Thank you for playing the game!
 
 GAME INSTRUCTIONS:
-The goal of the game is to jump over obstacles and score points. Use the space bar or the up arrow key to jump over each obstacle to score a point. If you time your jump wrong over an obstacle, the game ends. Good luck!
+The goal of the game is to jump over obstacles and score points. After pressing the start button on the start menu, use the space bar or the up arrow key to jump over each obstacle to score a point. If you time your jump wrong over an obstacle, the game ends. If you want to play the game again, use the reset button on the game over screen to reset the game. See how high of a score you can get! Good luck!
 
 Version 0.1
 
