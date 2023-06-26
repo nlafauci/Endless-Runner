@@ -42,52 +42,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function checkCollision() {
-    const playerRect = player.getBoundingClientRect();
-    const playerBottom = playerRect.top + playerRect.height;
+ function checkCollision() {
+  const playerRect = player.getBoundingClientRect();
+  const playerBottom = playerRect.bottom;
+  const playerTop = playerRect.top;
 
-    if (!obstaclesMoving) {
-      return;
-    }
+  if (!obstaclesMoving) {
+    return;
+  }
 
-    let collided = false; // Flag to track if a collision occurred
+  let collided = false;
 
-    hills.forEach((hill) => {
-      const hillRect = hill.getBoundingClientRect();
-      const hillTop = hillRect.top;
-      const hillBottom = hillRect.top + hillRect.height;
-      console.log(hills);
+  for (const hill of hills) {
+    const hillRect = hill.getBoundingClientRect();
+    const hillTop = hillRect.top;
+    const hillBottom = hillRect.bottom;
 
-      if (hills[0] == hill) {
-        console.log("hills0" + score)
-      }
-
+    if (
+      // Check if obstacle collides with the player horizontally
+      playerRect.left < hillRect.right &&
+      playerRect.right > hillRect.left
+    ) {
       if (
-        playerBottom >= hillTop &&
-        playerRect.left < hillRect.right &&
-        playerRect.right > hillRect.left
+        // Check if obstacle hits the player from the top
+        playerTop < hillBottom &&
+        playerBottom > hillTop
       ) {
-        console.log('Collision detected');
-        collided = true; // Set the collided flag to true
-      } else if (
-        playerBottom <= hillTop &&
-        playerRect.right >= hillRect.left &&
-        playerRect.left <= hillRect.right &&
-        !hill.isScored
-      ) {
-        // Player jumped over the obstacle successfully
-        hill.isScored = true;
-        updateScore();
+        collided = true;
+        break;
       }
-    });
-
-    if (collided) {
-      gameOver(); // Call gameOver only if a collision occurred
-    } else if (!collided && !jumping) {
-      // No collision and player is not jumping, increment score
+    } else if (
+      // Check if the player jumped over the obstacle successfully
+      playerBottom <= hillTop &&
+      playerRect.right >= hillRect.left &&
+      playerRect.left <= hillRect.right &&
+      !hill.isScored
+    ) {
+      hill.isScored = true;
       updateScore();
     }
   }
+
+  if (collided || playerBottom >= gameSpace.clientHeight || (!jumping && collided === false)) {
+    gameOver();
+  } else if (!collided && !jumping) {
+    updateScore();
+  }
+}
+
+
 
   function updateScore() {
     score++;
