@@ -8,11 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameOverDiv = document.querySelector('.game-over');
   const scoreSpan = document.getElementById('score');
   const restartButton = document.querySelector('.again');
-  let gravity = 2;
   let score = 0;
   let gameStarted = false;
   let jumping = false;
-  let isColliding = false;
   let obstaclesMoving = false;
 
   function jump() {
@@ -45,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkCollision() {
   const playerRect = player.getBoundingClientRect();
   const playerBottom = playerRect.bottom;
+  const playerRight = playerRect.right;
 
   if (!obstaclesMoving) {
     return;
@@ -55,12 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
   for (const hill of hills) {
     const hillRect = hill.getBoundingClientRect();
     const hillTop = hillRect.top;
-    const hillBottom = hillRect.bottom;
+    const hillLeft = hillRect.left;
+    const hillTopCollision = (playerBottom >= hillTop && playerRect.left < hillRect.right && playerRect.right > hillRect.left);
+    const hillLeftCollision = (playerRight >= hillLeft && playerRect.right <= hillRect.left && playerRect.right < hillRect.left);
+    console.log(hillTopCollision);
+    console.log(hills.length);
 
-    if (playerBottom >= hillTop && playerRect.left < hillRect.right && playerRect.right > hillRect.left) {
+    if (hillTopCollision || hillLeftCollision) {
       collided = true;
       break;
-    } else if (playerBottom <= hillTop && playerRect.right >= hillRect.left && playerRect.left <= hillRect.right && !hill.isScored) {
+    // } else if (playerBottom <= hillTop && playerRect.right >= hillRect.left && playerRect.left <= hillRect.right && !hill.isScored) {
+    } else {
       hill.isScored = true;
       updateScore();
     }
