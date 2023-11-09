@@ -13,27 +13,28 @@
   align-items: center;
   justify-content: center;
 }
-
-.title {
+.start-menu .title {
   font-size: 100px;
   font-family: stencil;
   padding-right: 100px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   text-align: center;
   color: rgb(0, 80, 49);
 }
-
-.instructions {
+.start-menu .instructions {
   font-size: 50px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   color: rgb(0, 0, 0);
-  text-align: center; /* Add this line */
+  text-align: center;
   margin-top: 50px;
-  margin-right: 120px; /* Adjust the value as per your requirement */
+  margin-right: 120px;
 }
-
-.start {
+.start-menu .start {
   width: 300px;
   height: 100px;
   font-size: 60px;
@@ -54,6 +55,35 @@
   transform: translate(-50%, -50%);
   display: none;
 }
+.game-over .game-over-heading {
+  font-size: 100px;
+  font-family: stencil;
+  padding-right: 100px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  text-align: center;
+  color: rgb(255, 0, 0);
+}
+.game-over .score {
+  font-size: 50px;
+  font-family: "Times New Roman", Times, serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 120px;
+}
+.game-over .again {
+  width: 300px;
+  height: 100px;
+  font-size: 60px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  margin: 20px 700px;
+}
 
 body {
   background-color: green;
@@ -68,45 +98,13 @@ body {
   background-image: url("assets/Character/Background/BG2.png");
   background-size: cover;
   background-repeat: no-repeat;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.game-over-heading {
-  font-size: 100px;
-  font-family: stencil;
-  padding-right: 100px;
-  user-select: none;
-  text-align: center;
-  color: rgb(255, 0, 0);
-}
-
-.score {
-  font-size: 50px;
-  font-family: 'Times New Roman', Times, serif;
-  user-select: none;
-  color: rgb(0, 0, 0);
-  text-align: center; /* Add this line */
-  margin-top: 50px;
-  margin-right: 120px; /* Adjust the value as per your requirement */
-}
-
-.again {
-  width: 300px;
-  height: 100px;
-  font-size: 60px;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  margin: 20px 700px;
-}
-
-
-.reset {
-  width: 75px;
-  height: 50px;
 }
 
 .dino {
@@ -115,6 +113,8 @@ body {
   position: absolute;
   top: 539px;
   left: 200px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
 }
 
@@ -125,11 +125,12 @@ body {
   top: 336px;
   left: 80px;
   transform: translate(-50%, -50%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   z-index: 3;
 }
-
-.hill-animation {
+.hill.hill-animation, .grass.hill-animation {
   animation: block 1.3s infinite linear;
 }
 
@@ -141,19 +142,22 @@ body {
     left: 48px;
   }
 }
-
 .ground {
   height: 148px;
   width: 1820px;
   top: 662px;
   right: 10px;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
 }
 
 .land {
   height: 148px;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
 }
 
@@ -168,7 +172,6 @@ body {
     transform: translateY(0);
   }
 }
-
 @keyframes fall {
   0% {
     transform: translateY(-100px);
@@ -176,4 +179,4 @@ body {
   100% {
     transform: translateY(0);
   }
-}
+}/*# sourceMappingURL=styles.css.map */
