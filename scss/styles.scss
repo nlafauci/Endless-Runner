@@ -1,52 +1,23 @@
-.start-menu {
-    background-color: rgba(255, 255, 255, 0.37);
-    position: fixed;
-    z-index: 2;
-    margin: auto;
-    width: 1820px;
-    height: 824px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+// Define a mixin for setting user-select to none
+@mixin no-user-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
   
-    .title {
-      font-size: 100px;
-      font-family: stencil;
-      padding-right: 100px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-      text-align: center;
-      color: rgb(0, 80, 49);
-    }
-  
-    .instructions {
-      font-size: 50px;
-      font-family: "Times New Roman", Times, serif;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-      color: rgb(0, 0, 0);
-      text-align: center;
-      margin-top: 50px;
-      margin-right: 120px;
-    }
-  
-    .start {
-      width: 300px;
-      height: 100px;
-      font-size: 60px;
-      font-family: sans-serif;
-      text-transform: uppercase;
-      margin: 20px 700px;
+  // Define a function for font families
+  @function font-family($family) {
+    @if $family == 'stencil' {
+      @return stencil;
+    } @else if $family == 'times' {
+      @return "Times New Roman", Times, serif;
+    } @else {
+      @return sans-serif;
     }
   }
   
-  .game-over {
+  // Define a mixin for common properties used in both .start-menu and .game-over
+  @mixin common-popup {
     background-color: rgba(255, 255, 255, 0.37);
     position: fixed;
     z-index: 1;
@@ -57,24 +28,56 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+  }
+  
+  .start-menu {
+    @include common-popup;
+  
+    .title {
+      font-size: 100px;
+      font-family: font-family(stencil);
+      padding-right: 100px;
+      @include no-user-select;
+      text-align: center;
+      color: rgb(0, 80, 49);
+    }
+  
+    .instructions {
+      font-size: 50px;
+      font-family: font-family('times');
+      @include no-user-select;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      margin-top: 50px;
+      margin-right: 120px;
+    }
+  
+    .start {
+      width: 300px;
+      height: 100px;
+      font-size: 60px;
+      font-family: font-family(sans-serif);
+      text-transform: uppercase;
+      margin: 20px 700px;
+    }
+  }
+  
+  .game-over {
+    @include common-popup;
   
     .game-over-heading {
       font-size: 100px;
-      font-family: stencil;
+      font-family: font-family(stencil);
       padding-right: 100px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
+      @include no-user-select;
       text-align: center;
       color: rgb(255, 0, 0);
     }
   
     .score {
       font-size: 50px;
-      font-family: "Times New Roman", Times, serif;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
+      font-family: font-family('times');
+      @include no-user-select;
       color: rgb(0, 0, 0);
       text-align: center;
       margin-top: 50px;
@@ -85,15 +88,10 @@
       width: 300px;
       height: 100px;
       font-size: 60px;
-      font-family: sans-serif;
+      font-family: font-family(sans-serif);
       text-transform: uppercase;
       margin: 20px 700px;
     }
-  }
-  
-  body {
-    background-color: green;
-    overflow: hidden;
   }
   
   .game-space {
@@ -104,9 +102,7 @@
     background-image: url("assets/Character/Background/BG2.png");
     background-size: cover;
     background-repeat: no-repeat;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+    @include no-user-select;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -119,9 +115,7 @@
     position: absolute;
     top: 539px;
     left: 200px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+    @include no-user-select;
   }
   
   .hill, .grass {
@@ -131,9 +125,7 @@
     top: 336px;
     left: 80px;
     transform: translate(-50%, -50%);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+    @include no-user-select;
     z-index: 3;
   
     &.hill-animation {
@@ -156,17 +148,13 @@
     top: 662px;
     right: 10px;
     position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+    @include no-user-select;
   }
   
   .land {
     height: 148px;
     position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+    @include no-user-select;
   }
   
   @keyframes jump {
@@ -189,4 +177,5 @@
       transform: translateY(0);
     }
   }
+  
   
